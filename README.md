@@ -1,7 +1,9 @@
 # twilio-batch-phone-numbers-remover
 Small CLI-tool that removes reserved Twilio.com phone numbers in batch mode
 
-Unfortunately Twilio doesn't allow you to remove phone numbers in batch mode and it is getting really tough to remove all of them if you thousands of them
+Unfortunately Twilio doesn't allow you to remove phone numbers in batch mode using web-interface and it is getting really tough to remove all of them if you have thousands of them.
+This tool deletes all incoming phone numbers reserved/linked to Twilio account.
+You will have to provide Twilio credentials (Account SID and Auth Token).
 
 ## Use pre-built container from Dockerhub
 ```
