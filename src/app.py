@@ -21,7 +21,7 @@ def main():
         client = Client(twilio_account_sid, twilio_auth_token)
         numbers = client.incoming_phone_numbers.list()
     except twilio.base.exceptions.TwilioException as e:
-        raise NameError('Wrong Twilio.com credentials. Message is %s' % getattr(e, 'message', repr(e)))
+        raise NameError('Twillio fatal error: "%s"' % getattr(e, 'message', repr(e)))
 
     if len(numbers) > 0:
         print("""
