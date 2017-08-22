@@ -20,8 +20,8 @@ def main():
     try:
         client = Client(twilio_account_sid, twilio_auth_token)
         numbers = client.incoming_phone_numbers.list()
-    except twilio.base.exceptions.TwilioException:
-        raise NameError('Wrong Twilio.com credentials')
+    except twilio.base.exceptions.TwilioException as e:
+        raise NameError('Wrong Twilio.com credentials. Message is %s' % getattr(e, 'message', repr(e)))
 
     if len(numbers) > 0:
         print("""
@@ -54,6 +54,6 @@ if __name__ == '__main__':
 
     except Exception as e:
         print('ERROR, UNEXPECTED EXCEPTION')
-        print(str(e))
+        print(getattr(e, 'message', repr(e)))
         traceback.print_exc()
         sys.exit(1)
